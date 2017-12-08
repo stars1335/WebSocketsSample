@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Diagnostics.Contracts;
 
-namespace ConsoleApplication1
+namespace ConsoleApplication1  
 {
     public class TelnetSession : AppSession<TelnetSession, YourRequestInfo>
     {
