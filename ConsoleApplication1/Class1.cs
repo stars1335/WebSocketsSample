@@ -6,11 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading.Tasks;    
 using System.Net;
 using System.Diagnostics.Contracts;
 
-namespace ConsoleApplication1  
+namespace ConsoleApplication1   坐上车
 {
     public class TelnetSession : AppSession<TelnetSession, YourRequestInfo>
     {
