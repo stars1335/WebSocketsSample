@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net;
+using System.Diagnostics.Contracts;
 
 namespace ConsoleApplication1
 {
@@ -17,16 +18,17 @@ namespace ConsoleApplication1
         {
             this.Send("Welcome to SuperSocket Telnet Server?");
         }
-
         protected override void HandleUnknownRequest(YourRequestInfo requestInfo)
         {
             this.Send("Unknow request??");
         }
+        //protected override void HandleUnknownRequest(YourRequestInfo requestInfo)
+        //            protected override void OnSessionStarted()
 
-        protected override void HandleException(Exception e)
-        {
-            this.Send("Application error123: {0}", e.Message);
-        }
+        //protected override void HandleException(Exception e)
+        //{
+        //    this.Send("Application error123: {0}", e.Message);
+        //}
 
         protected override void OnSessionClosed(CloseReason reason)
         {
@@ -87,8 +89,8 @@ namespace ConsoleApplication1
 
         public int DeviceId { get; set; }
         string A { set; get; }
-    }
 
+    }
     public class YourReceiveFilterFactory : IReceiveFilterFactory<YourRequestInfo>
     {
         //More code
@@ -100,6 +102,19 @@ namespace ConsoleApplication1
     public class YourReceiveFilter : TerminatorReceiveFilter<YourRequestInfo>
     {
         public YourReceiveFilter(byte[] terminator,string dd) : base(terminator)
+        {
+            NewMethod(dd);
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private static void NewMethod(string dd)
         {
             Console.WriteLine(dd);
         }
